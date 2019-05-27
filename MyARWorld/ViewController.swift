@@ -17,59 +17,71 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set the view's delegate
         sceneView.delegate = self
-        
-        // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
+        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, .showFeaturePoints, .showBoundingBoxes]
+        sceneView.autoenablesDefaultLighting = true
         
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
+        drawSphere(at: SCNVector3(0, 0, 0))
+        drawBox(at: SCNVector3(0, 0.2, -0.3))
+        drawPyramid(at: SCNVector3(0, -0.2, 0.3))
+        drawCat(at: SCNVector3(-0.2,0,0))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
 
-        // Run the view's session
         sceneView.session.run(configuration)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        // Pause the view's session
         sceneView.session.pause()
     }
-
-    // MARK: - ARSCNViewDelegate
-    
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
-    }
-*/
     
     func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
         
     }
     
     func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
         
     }
     
     func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
         
+    }
+}
+
+extension ViewController {
+    func drawSphere(at vector3: SCNVector3) {
+        let sphere = SCNNode(geometry: SCNSphere(radius: 0.05 ))
+        sphere.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
+        sphere.position = vector3
+        sceneView.scene.rootNode.addChildNode(sphere)
+        
+    }
+    func drawBox(at vector3: SCNVector3) {
+        let box = SCNNode(geometry: SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.0))
+        box.position = vector3
+        box.geometry?.firstMaterial?.diffuse.contents = UIColor.orange
+        box.geometry?.firstMaterial?.specular.contents = UIColor.green
+        sceneView.scene.rootNode.addChildNode(box)
+    }
+    func drawPyramid(at vector3: SCNVector3) {
+        let pyramid = SCNNode(geometry: SCNPyramid(width: 0.1, height: 0.1, length: 0.1))
+        pyramid.position = vector3
+        pyramid.geometry?.firstMaterial?.diffuse.contents = UIColor.purple
+        pyramid.geometry?.firstMaterial?.specular.contents = UIColor.red
+        sceneView.scene.rootNode.addChildNode(pyramid)
+    }
+    func drawCat(at vector3: SCNVector3) {
+        let plane = SCNNode(geometry: SCNPlane(width: 0.1, height: 0.1))
+        plane.geometry?.firstMaterial?.diffuse.contents = UIColor.magenta
+        plane.geometry?.firstMaterial?.specular.contents = UIColor.yellow
+        plane.position = vector3
+        sceneView.scene.rootNode.addChildNode(plane)
     }
 }
