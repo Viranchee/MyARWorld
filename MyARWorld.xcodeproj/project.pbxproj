@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20789725229FC8E3005DD0A4 /* StatusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20789724229FC8E3005DD0A4 /* StatusController.swift */; };
 		20D8ADB92298132C00BBE884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D8ADB82298132C00BBE884 /* AppDelegate.swift */; };
 		20D8ADBB2298132C00BBE884 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 20D8ADBA2298132C00BBE884 /* art.scnassets */; };
 		20D8ADBD2298132C00BBE884 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D8ADBC2298132C00BBE884 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20789724229FC8E3005DD0A4 /* StatusController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusController.swift; sourceTree = "<group>"; };
 		20D8ADB52298132C00BBE884 /* MyARWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyARWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D8ADB82298132C00BBE884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20D8ADBA2298132C00BBE884 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				20D8ADB82298132C00BBE884 /* AppDelegate.swift */,
 				20D8ADBA2298132C00BBE884 /* art.scnassets */,
 				20D8ADBC2298132C00BBE884 /* ViewController.swift */,
+				20789724229FC8E3005DD0A4 /* StatusController.swift */,
 				20D8ADBE2298132C00BBE884 /* Main.storyboard */,
 				20D8ADC12298132C00BBE884 /* Assets.xcassets */,
 				20D8ADC32298132C00BBE884 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20D8ADBD2298132C00BBE884 /* ViewController.swift in Sources */,
+				20789725229FC8E3005DD0A4 /* StatusController.swift in Sources */,
 				20D8ADB92298132C00BBE884 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

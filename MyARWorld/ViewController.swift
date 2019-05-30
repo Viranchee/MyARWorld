@@ -14,9 +14,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    @IBOutlet var blurView: UIVisualEffectView!
+    
     var objects: [SCNNode] = []
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         sceneView.delegate = self
