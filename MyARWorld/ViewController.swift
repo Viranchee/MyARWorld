@@ -14,7 +14,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
-    
+    var objects: [SCNNode] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, .showFeaturePoints, .showBoundingBoxes]
         sceneView.autoenablesDefaultLighting = true
+        
+        drawObjects()
         
     }
     
@@ -40,17 +42,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
     
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        
-    }
-    
-    func sessionWasInterrupted(_ session: ARSession) {
-        
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        
-    }
 }
 
 extension ViewController {
@@ -92,7 +83,9 @@ extension ViewController {
     
     func drawObjects() {
         for node in Objects.allCases {
-            sceneView.scene.rootNode.addChildNode(node.value)
+            let theNode = node.value
+            sceneView.scene.rootNode.addChildNode(theNode)
+            objects.append(theNode)
         }
     }
 }
